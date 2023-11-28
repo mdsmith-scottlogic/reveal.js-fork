@@ -1,3 +1,44 @@
+# Lightning Talks 
+
+This repo contains a  handy template for writing Lighning talk presnetations.
+
+## Features
+
+1. No mucking about in Powerpoint or Google slides
+1. Easy to create slides in text
+
+```html
+<section>
+  <h2 class="r-fit-text">HELLO WORLD</h2>
+  <h2 class="r-fit-text">BOTH THESE TITLES USE FIT-TEXT</h2>
+</section>
+```
+
+3. Can show code fragments really well:
+
+```html
+<section id="fit-text">
+  <h2>Fit Text</h2>
+  <pre ><code class="python" data-trim data-line-numbers="0|3|5-6" style="font-size: 240%; line-height:100%" >
+    print("hello")
+    print("a")
+    print("b")
+    print("c")
+    print("d")
+    print("e")
+    print("f")
+  </code></pre>
+</section>
+```
+
+4. Can do non-linear navigation
+4. Save to a repository
+4. Still no mucking about in Powerpoint or Google slides.
+
+
+(end)
+---
+
 <p align="center">
   <a href="https://revealjs.com">
   <img src="https://hakim-static.s3.amazonaws.com/reveal-js/logo/v1/reveal-black-text-sticker.png" alt="reveal.js" width="500">
