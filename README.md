@@ -2,6 +2,13 @@
 
 This repo contains a  handy template for writing Lighning talk presnetations.
 
+## Build / Run
+
+```bash
+npm update
+npm start
+```
+
 ## Features
 
 1. No mucking about in Powerpoint or Google slides
