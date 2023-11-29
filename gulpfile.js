@@ -318,6 +318,4 @@ gulp.task('serve', () => {
 
     gulp.watch(['test/*.html'], gulp.series('test'))
 
-    gulp.watch(['presentations/**/*.html'], gulp.series('presentations'))
-
 })
