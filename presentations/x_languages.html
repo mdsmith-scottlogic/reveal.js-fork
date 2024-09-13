@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - Layout Helpers</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="../plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+					
+				<!-- TITLE SLIDE -->
+				<section>
+						<h2 class="r-fit-text">X Languages in  X weeks</h2>
+						<h1>Elixir</h1>
+						<h3>Mark Smith</h3>
+						<p>Lead Developer, 
+						<p>Scott Logic Leeds</p>
+				</section>
+
+				<!-- Language header page -->
+				<section>
+					<img src="elixir-horizontal.png" height="200px"/>
+					<h2 class="r-fit-text">Concurrency-oriented programming</h2>
+					<h2 class="r-fit-text">Scalable, simple, and just a bit old-school</h2>
+					<h2 class="r-fit-text">Based on Erlang, OTP, BEAM</h2>
+				</section>
+
+				<section>
+                    <h1 class="r-fit-text">What is Elixir all about?</h1>
+                    <div class="r-vstack data-auto-animate">
+                        <h2 class="fragment r-fit-text">Functional-ish language</h2>
+                        <h2 class="fragment r-fit-text">Heavy emphasis on immutability</h2>
+                        <h2 class="fragment r-fit-text">Massively scalable at low cost / complexity</h2>
+                        <h2 class="fragment r-fit-text">Released 2012, open source, regular updates</h2>
+                    </div>
+				</section>
+
+				<section>
+                    <h1 class="r-fit-text">Who uses it?</h1>
+                    <div class="r-vstack data-auto-animate">
+                        <h2 class="fragment r-fit-text">Vocalink (Mastercard), Motorola</h2>
+                        <h2 class="fragment r-fit-text">Ericson, Supabase, Lonely Planet</h2>
+                        <h2 class="fragment r-fit-text">Apple, Pepsi, Adobe, Pagerduty, Felt</h2>
+                        <h2 class="fragment r-fit-text">Pinterest, Discord, Whatsapp.</h2>
+                    </div>
+				</section>
+
+                <section>
+                    <h2 class="r-fit-text">HELLO WORLD</h2>
+
+					<pre><code class="elixir" data-trim data-line-numbers="|1,5|2,3,4|7|" style="font-size: 140%; line-height:100%" >
+	
+						defmodule Demo do
+							def say(message) do
+								IO.puts(message)
+							end
+						end
+
+						Demo.say "Hello, world!"
+					</code></pre>
+					<pre>mix run demo_1.exs</pre>
+
+				</section>
+                
+				<section>
+                    <h2 class="r-fit-text">HELLO WORLD v2</h2>
+					<pre><code class="elixir" data-trim data-line-numbers="|2,6|2,11|6,7,8,12|" style="font-size: 120%; line-height:100%" >
+	
+						defmodule Demo do
+							def say(message) when is_bitstring(message) do
+								IO.puts message
+							end
+					
+							def say(_message) do
+								say "hello-world!"
+							end
+						end
+
+						Demo.say "Hello, world!"
+						Demo.say 123
+					</code></pre>
+					<pre>mix run demo_2.exs</pre>
+				</section>
+
+				<section>
+                    <h1>Get started</h1>
+					<pre>Using devbox</pre>
+					<pre><code class="zsh" data-trim data-line-numbers="|2,3,4,5|7|8,9|" style="font-size: 120%; line-height:100%" >
+						# Install devbox and elixir
+						curl -fsSL https://get.jetify.com/devbox | bash
+						devbox add elixir
+						devbox init
+						devbox shell
+
+						(devbox) dms@WS02671:~$ elixir -v
+						Erlang/OTP 25 [erts-13.2.2.10] [source] [64-bit] 
+						Elixir 1.16.3 (compiled with Erlang/OTP 25)
+					</code></pre>
+				</section>
+
+				<section>
+                    <h1>In the box</h1>
+                    <div>
+						<ul>
+							<li>mix - command line</li>
+							<li>iex - repl</li>
+							<li>ecto - database mapper / migrations</li>
+							<li>mnesia - internal distributed database / cache</li>
+							<li>process supervisor for running distributed systems</li>
+							<li>logging - OpenTelemetry</li>
+						</ul>
+					</div>
+				</section>
+
+				<section>
+                    <h1>Interactive</h1>
+					<pre>iex interactive shell</pre>
+					<pre><code class="zsh" data-trim data-line-numbers="|1|2,3|4|5,6|" style="font-size: 120%; line-height:100%" >
+						(devbox) dms@WS02671:~$ iex
+						Erlang/OTP 25 [erts-13.2.2.10] [source] [64-bit] [smp:12:12] [ds:12:12:10] [async-threads:1] [jit:ns]			
+						Interactive Elixir (1.16.3) - press Ctrl+C to exit (type h() ENTER for help)
+						iex(1)> IO.puts "Hello"
+						Hello
+						:ok
+						iex(2)>
+					</code></pre>
+				</section>
+
+				<section>
+                    <h1>Interactive</h1>
+					<pre><code class="zsh" data-trim data-line-numbers="|1|" style="font-size: 100%; line-height:100%" >
+						iex(1)> h IO.puts/1
+
+						def puts(device \\ :stdio, item)
+
+						Writes item to the given device, similar to write/2, but adds  
+						a newline at the end.
+
+						By default, the device is the standard output. It returns :ok 
+						if it succeeds.
+
+						## Examples
+
+							IO.puts("Hello World!")
+							#=> Hello World!
+
+							IO.puts(:stderr, "error")
+							#=> error					
+					</code></pre>
+				</section>
+
+               <section>
+                    <h1>In the box - mix</h1>
+
+					<pre><code class="zsh" style="font-size: 140%; line-height:100%" >
+						mix new
+						mix compile
+						mix test
+						mix run
+						mix release
+						mix install
+						...
+					</code></pre>
+				</section>
+				
+				<section>
+                    <h1>Common Extras</h1>
+					<ul>
+						<li>livebook - notebooks
+						<li>oban - task scheduler
+						<li>ecto + postgres / SQLite / MySQL
+						<li>phoenix - web UI
+						<li>ash - domain modelling
+						<li>nerves - IOT
+					</ul>
+				</section>
+
+				<section>
+                    <h1>The good stuff</h1>
+					<ul>
+						<li>Super productive
+						<li>Ridiculous scalability
+						<li>Loads of standard libraries all well documented
+						<li>Excellent community support
+						<li>No need for - load balancers, queues, caches..
+					</ul>
+				</section>
+
+				<section>
+                    <h1>Er, what?</h1>
+					<ul>
+						<li>Rewires your brainz
+						<li>Hard to find jobs / developers
+						<li>Loosely typed
+						<li>IDE support is weak
+					</ul>
+				</section>
+
+				<section>
+                    <h1>Demo time</h1>
+					<ul>
+						<li>Fibonacci in a Livebook
+						<li>Simple web server with Phoenix
+					</ul>
+				</section>
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				center: true,
+				hash: true,
+				plugins: [ RevealHighlight ]
+			});
+		</script>
+
+	</body>
+</html>
